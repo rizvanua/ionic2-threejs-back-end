@@ -15,6 +15,7 @@ let getMainDataLineWeek = require('./routers/getMainDataLineWeek');
 let getMainDataLineMonth = require('./routers/getMainDataLineMonth');
 let getMainDataLineYear = require('./routers/getMainDataLineYear');
 let getMainDataLineRange = require('./routers/getMainDataLineRange');
+let getTestData = require('./routers/getTestData');
 let postMainData = require('./routers/postMainData');
 
 app.use((req, res, next)=> {
@@ -30,6 +31,7 @@ app.use('/getMainDataLineWeek', getMainDataLineWeek);
 app.use('/getMainDataLineMonth', getMainDataLineMonth);
 app.use('/getMainDataLineYear', getMainDataLineYear);
 app.use('/getMainDataLineRange', getMainDataLineRange);
+app.use('/getTestData',getTestData);
 app.use('/postMainData', postMainData);
 app.get('/', (req, res)=> {
     res.send('Hello World!')

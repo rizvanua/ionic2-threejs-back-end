@@ -10,6 +10,7 @@ const mainDataObjects= require('../models/mainData');
 let getMainDataRouter = express.Router();
 getMainDataRouter.use(bodyParser.json());
 
+
 getMainDataRouter.route('/')
     .get((req,res)=>{
         console.log(req._parsedUrl);
@@ -19,27 +20,8 @@ getMainDataRouter.route('/')
         mainDataObjects.aggregate([
             {
                 $match: {time: {$gte: new Date(gueryUrl.start), $lt: new Date(gueryUrl.end)}}
-            },
-            {
-                $project: {
-                    level:"$level",
-                    time: {
-                        $hour: "$time"
-
-                    }
-                }
-            },
-            {
-                $group:
-                    {_id :{
-                        level:"$level",
-                            time:{
-                                $cond: { if: { $gte: [ { $divide: [{$add:["$time", (gueryUrl.diff*1)]}, 23 ] },1]}, then:{$add:[-24,{ $add: ["$time", (gueryUrl.diff*1) ] }]}, else:{ $add: ["$time", (gueryUrl.diff*1) ] } }
-                            }
-                        },
-                        count: { $sum: 1 }
-                    }
             }
+
         ]).then((mainData)=>{
             res.json({mainData});
             console.log('We get Data')
@@ -48,6 +30,13 @@ getMainDataRouter.route('/')
         })
     });
 
-
+/*getMainDataRouter.route('/')
+    .get((req,res)=>{
+        mainDataObjects.find({'time': {$gte: start, $lt: end}}).then((mainData)=>{
+            res.send({mainData});
+        },(e)=>{
+            res.status(400).send(e);
+        })
+    });*/
 
 module.exports = getMainDataRouter;

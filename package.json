@@ -2,7 +2,9 @@
   "name": "application-name",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "start": "forever start index.js",
+    "stop": "forever stop index.js"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

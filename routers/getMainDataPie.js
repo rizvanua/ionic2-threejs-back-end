@@ -9,28 +9,9 @@ const querystring = require('querystring');
 const mainDataObjects= require('../models/mainData');
 let getMainDataRouter = express.Router();
 getMainDataRouter.use(bodyParser.json());
-currentDate = new Date();
-const startOld = new Date();
-startOld.setHours(0,0,0,0);
-//console.log('start '+startOld);
 
-const endOld = new Date();
-endOld.setHours(23,59,59,999);
-//console.log('end '+endOld);
-//const start=moment().startOf('day').toISOString();
-/*const end = moment().endOf('day').toISOString();
-const startWeek=moment().startOf('week');
-const endWeek = moment().endOf('week');*/
-console.log(startOld);
-console.log(endOld);
-//console.log(start);
-//console.log(startWeek);
-//console.log(endWeek);
-/*let start = moment().startOf('day').toDate().toString();
-let end = moment().endOf('day').toDate().toISOString();*/
 getMainDataRouter.route('/')
     .get((req,res)=>{
-        console.log(req._parsedUrl);
         let period=req._parsedUrl;
         let gueryUrl=querystring.parse(req._parsedUrl.query);
         console.log(gueryUrl);
