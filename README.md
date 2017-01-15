@@ -1,6 +1,7 @@
 # ionic2-threejs-back-end
-The back-end for Ionic2-threejs based on Node js
-copy the files into a server
+The back-end for Ionic2-threejs is based on Node js.
+
+Copy the files into a server
 
 install Nodejs v6.9.4  [https://nodejs.org/](https://nodejs.org/) (if you don't have)
 
