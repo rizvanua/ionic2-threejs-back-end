@@ -15,7 +15,7 @@ $ npm install forever -g OR $ sudo npm install forever -g
 to starts mongod as a daemon run command
 
 ```bash
-mongod --fork --logpath /var/log/mongodb.log
+sudo mongod dbpath = data --fork --logpath /var/log/mongodb.log
 ```
 then
 
