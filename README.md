@@ -32,3 +32,9 @@ to stop Nodejs server run command
 ```bash
 npm run stop
 ```
+
+to stop MongoDB
+
+```bash
+sudo service mongod stop
+```
