@@ -17,6 +17,9 @@ let getMainDataLineYear = require('./routers/getMainDataLineYear');
 let getMainDataLineRange = require('./routers/getMainDataLineRange');
 let getTestData = require('./routers/getTestData');
 let postMainData = require('./routers/postMainData');
+let postTemp = require('./routers/postTemp');
+let getTemp = require('./routers/getTemp');
+
 
 app.use((req, res, next)=> {
     res.header("Access-Control-Allow-Origin", "*");
@@ -33,6 +36,9 @@ app.use('/getMainDataLineYear', getMainDataLineYear);
 app.use('/getMainDataLineRange', getMainDataLineRange);
 app.use('/getTestData',getTestData);
 app.use('/postMainData', postMainData);
+app.use('/postTemp', postTemp);
+app.use('/getTemp', getTemp);
+
 app.get('/', (req, res)=> {
     res.send('Hello World!')
 });
