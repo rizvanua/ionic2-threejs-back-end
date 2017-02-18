@@ -50,7 +50,25 @@ app.use((req, res, next)=> {
     next(err);
     res.send('Not Found')
 });
+/*
+// If you going to use back-end and front-ent on one server use the code below
+ app.get('/', function (req, res) {
+ res.sendFile('index.html', { root: __dirname });
+ });
 
+
+ // catch 404 and forward to error handler
+ app.use(function (req, res, next) {
+ var err = new Error('Not Found');
+ err.status = 404;
+ next(err);
+ res.send('Not Found');
+ });
+
+ app.listen(8080,'0.0.0.0', function () {
+ console.log('Example app listening on port 8080!');
+ });
+ */
 app.listen(3000, ()=> {
     console.log('Example app listening on port 3000!')
 });
