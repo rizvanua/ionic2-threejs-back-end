@@ -51,7 +51,7 @@ app.use((req, res, next)=> {
     res.send('Not Found')
 });
 /*
-// If you going to use back-end and front-ent on one server use the code below
+// If you are going to use back-end and front-ent on one server use the code below
  app.get('/', function (req, res) {
  res.sendFile('index.html', { root: __dirname });
  });
